@@ -1,4 +1,4 @@
-import { DurableObject } from 'cloudflare:workers';
+import { DurableObject } from "cloudflare:workers";
 
 export class RouterDO extends DurableObject<Env> {
 	constructor(ctx: DurableObjectState, env: Env) {

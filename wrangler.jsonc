@@ -4,7 +4,7 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2026-03-10",
 	"observability": {
-		"enabled": true,
+		"enabled": true
 	},
 	"upload_source_maps": true,
 	"compatibility_flags": ["nodejs_compat"],
@@ -13,8 +13,8 @@
 		"bindings": [
 			{
 				"name": "ROUTER_DO",
-				"class_name": "RouterDO",
-			},
-		],
-	},
+				"class_name": "RouterDO"
+			}
+		]
+	}
 }
