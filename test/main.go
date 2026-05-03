@@ -1,10 +1,11 @@
 package main
 
 import (
-	"log"
 	"fmt"
-	"google.golang.org/protobuf/proto"
+	"log"
+
 	pb "github.com/prdai/cf-region-proxy/test/proto"
+	"google.golang.org/protobuf/proto"
 )
 
 func main() {
