@@ -12,9 +12,27 @@
 	"durable_objects": {
 		"bindings": [
 			{
-				"name": "ROUTER_DO",
-				"class_name": "RouterDO"
+				"name": "ROUTER",
+				"class_name": "Router"
 			}
 		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": ["Router"]
+		}
+	],
+	"routes": [
+		{
+			"pattern": "cf-region-proxy.prdai.dev",
+			"custom_domain": true
+		}
+	],
+	"triggers": {
+		"crons": ["* * * * *"]
+	},
+	"observability": {
+		"enabled": true
 	}
 }

@@ -1,0 +1,19 @@
+// proto/request.proto
+
+/*
+the request body structured protobuf config for the forward request
+ */
+
+syntax = "proto3";
+
+package request;
+
+enum RequestMethod {
+	GET = 0;
+	POST = 1;
+	PUT = 2;
+}
+
+message Request {
+	RequestMethod method = 1;
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.17.2/.schema/devbox.schema.json",
+  "packages": [
+    "bun@latest",
+    "protobuf@latest",
+    "wrangler@latest"
+  ],
+  "shell": {
+    "init_hook": [
+      "bun install",
+	  "chmod +x scripts/generateProtocSchema.sh"
+    ],
+    "scripts": {}
+  }
+}
