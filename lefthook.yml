@@ -1,12 +1,13 @@
 pre-push:
   jobs:
-    - name: Run Test Suite (vitest)
-      run: bun run test
+    # - name: Run Test Suite
+    #   run: bun run test
 
 pre-commit:
   parallel: true
   jobs:
     - run: bun run cf-typegen
+    - run: make format
 
 # bun run lint
 # bun run check

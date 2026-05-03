@@ -1,17 +1,10 @@
 import { Router } from "./router";
+import scheduled from "./cron";
+import fetch from "./handler";
 
 export { Router };
 
 export default {
-	async fetch(request: Request, env: Env, _): Promise<Response> {
-		return new Response("Hello World!");
-	},
-	async scheduled(
-		controller: ScheduledController,
-		env: Env,
-		ctx: ExecutionContext,
-	) {
-		const randomFunc = async (): Promise<any> => {};
-		ctx.waitUntil(randomFunc());
-	},
+	fetch,
+	scheduled,
 } satisfies ExportedHandler<Env>;

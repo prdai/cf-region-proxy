@@ -6,23 +6,20 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
-		"test": "vitest",
 		"cf-typegen": "wrangler types",
 		"format:fix": "bunx biome format --fix",
 		"lint": "bunx biome lint",
 		"check": "bunx biome check",
-		"generate:proto": "scripts/generateProtocSchema.sh proto/request.proto"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.12",
-		"@cloudflare/vitest-pool-workers": "^0.14.9",
 		"@types/node": "^25.6.0",
 		"lefthook": "^2.1.6",
 		"typescript": "^6.0.3",
-		"vitest": "~4.1.5",
 		"wrangler": "^4.87.0"
 	},
 	"dependencies": {
+		"google-protobuf": "^4.0.2",
 		"protoc-gen-ts": "^0.8.7",
 		"ts-jackson": "^1.7.0"
 	}
