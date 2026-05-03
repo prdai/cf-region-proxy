@@ -3,7 +3,7 @@ export TEST_DIR=./test/
 export TS_PROTO_GEN_SCRIPT=scripts/generateProtocSchema.sh
 
 generate-proto-go:
-	protoc -I=. --go_out=$(TEST_DIR) --go_opt=paths=source_relative $(PROTO_FILE)
+	protoc -I=. --go_out=$(TEST_DIR) --go_opt=module=github.com/prdai/cf-region-proxy/test/proto $(PROTO_FILE)
 
 
 generate-proto-ts:

@@ -9,7 +9,7 @@
 		"cf-typegen": "wrangler types",
 		"format:fix": "bunx biome format --fix",
 		"lint": "bunx biome lint",
-		"check": "bunx biome check",
+		"check": "bunx biome check"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.12",
