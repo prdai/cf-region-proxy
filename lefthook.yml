@@ -1,9 +1,12 @@
 pre-push:
   jobs:
-    - name: packages audit
-      run: bunx audit
+    - name: Run Test Suite (vitest)
+      run: bun run test
 
 pre-commit:
   parallel: true
   jobs:
-    - run: bunx biome check 
+    - run: bun run cf-typegen
+
+# bun run lint
+# bun run check
