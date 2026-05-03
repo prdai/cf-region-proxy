@@ -3,10 +3,114 @@
  * compiler version: 7.34.1
  * source: proto/forwardRequest.proto
  * git: https://github.com/thesayyn/protoc-gen-ts */
-import * as dependency_1 from "./_method";
-import * as dependency_2 from "./_headers";
 import * as pb_1 from "google-protobuf";
 export namespace forwardRequest {
+	export enum RequestMethod {
+		GET = 0,
+		POST = 1,
+		PUT = 2,
+		PATCH = 3,
+		DELETE = 4,
+	}
+	export class Headers extends pb_1.Message {
+		#one_of_decls: number[][] = [];
+		constructor(
+			data?:
+				| any[]
+				| {
+						key?: string;
+						value?: string;
+				  },
+		) {
+			super();
+			pb_1.Message.initialize(
+				this,
+				Array.isArray(data) ? data : [],
+				0,
+				-1,
+				[],
+				this.#one_of_decls,
+			);
+			if (!Array.isArray(data) && typeof data == "object") {
+				if ("key" in data && data.key != undefined) {
+					this.key = data.key;
+				}
+				if ("value" in data && data.value != undefined) {
+					this.value = data.value;
+				}
+			}
+		}
+		get key() {
+			return pb_1.Message.getFieldWithDefault(this, 1, "") as string;
+		}
+		set key(value: string) {
+			pb_1.Message.setField(this, 1, value);
+		}
+		get value() {
+			return pb_1.Message.getFieldWithDefault(this, 2, "") as string;
+		}
+		set value(value: string) {
+			pb_1.Message.setField(this, 2, value);
+		}
+		static fromObject(data: { key?: string; value?: string }): Headers {
+			const message = new Headers({});
+			if (data.key != null) {
+				message.key = data.key;
+			}
+			if (data.value != null) {
+				message.value = data.value;
+			}
+			return message;
+		}
+		toObject() {
+			const data: {
+				key?: string;
+				value?: string;
+			} = {};
+			if (this.key != null) {
+				data.key = this.key;
+			}
+			if (this.value != null) {
+				data.value = this.value;
+			}
+			return data;
+		}
+		serialize(): Uint8Array;
+		serialize(w: pb_1.BinaryWriter): void;
+		serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+			const writer = w || new pb_1.BinaryWriter();
+			if (this.key.length) writer.writeString(1, this.key);
+			if (this.value.length) writer.writeString(2, this.value);
+			if (!w) return writer.getResultBuffer();
+		}
+		static deserialize(bytes: Uint8Array | pb_1.BinaryReader): Headers {
+			const reader =
+					bytes instanceof pb_1.BinaryReader
+						? bytes
+						: new pb_1.BinaryReader(bytes),
+				message = new Headers();
+			while (reader.nextField()) {
+				if (reader.isEndGroup()) break;
+				switch (reader.getFieldNumber()) {
+					case 1:
+						message.key = reader.readString();
+						break;
+					case 2:
+						message.value = reader.readString();
+						break;
+					default:
+						reader.skipField();
+				}
+			}
+			return message;
+		}
+		serializeBinary(): Uint8Array {
+			return this.serialize();
+		}
+		static deserializeBinary(bytes: Uint8Array): Headers {
+			return Headers.deserialize(bytes);
+		}
+	}
 	export class Request extends pb_1.Message {
 		#one_of_decls: number[][] = [[4]];
 		constructor(
@@ -14,8 +118,8 @@ export namespace forwardRequest {
 				| any[]
 				| ({
 						url?: string;
-						method?: dependency_1.RequestMethod;
-						headers?: dependency_2.Headers[];
+						method?: RequestMethod;
+						headers?: Headers[];
 				  } & {
 						body?: Uint8Array;
 				  }),
@@ -54,20 +158,20 @@ export namespace forwardRequest {
 			return pb_1.Message.getFieldWithDefault(
 				this,
 				2,
-				dependency_1.RequestMethod.GET,
-			) as dependency_1.RequestMethod;
+				RequestMethod.GET,
+			) as RequestMethod;
 		}
-		set method(value: dependency_1.RequestMethod) {
+		set method(value: RequestMethod) {
 			pb_1.Message.setField(this, 2, value);
 		}
 		get headers() {
 			return pb_1.Message.getRepeatedWrapperField(
 				this,
-				dependency_2.Headers,
+				Headers,
 				3,
-			) as dependency_2.Headers[];
+			) as Headers[];
 		}
-		set headers(value: dependency_2.Headers[]) {
+		set headers(value: Headers[]) {
 			pb_1.Message.setRepeatedWrapperField(this, 3, value);
 		}
 		get body() {
@@ -94,8 +198,8 @@ export namespace forwardRequest {
 		}
 		static fromObject(data: {
 			url?: string;
-			method?: dependency_1.RequestMethod;
-			headers?: ReturnType<typeof dependency_2.Headers.prototype.toObject>[];
+			method?: RequestMethod;
+			headers?: ReturnType<typeof Headers.prototype.toObject>[];
 			body?: Uint8Array;
 		}): Request {
 			const message = new Request({});
@@ -106,9 +210,7 @@ export namespace forwardRequest {
 				message.method = data.method;
 			}
 			if (data.headers != null) {
-				message.headers = data.headers.map((item) =>
-					dependency_2.Headers.fromObject(item),
-				);
+				message.headers = data.headers.map((item) => Headers.fromObject(item));
 			}
 			if (data.body != null) {
 				message.body = data.body;
@@ -118,8 +220,8 @@ export namespace forwardRequest {
 		toObject() {
 			const data: {
 				url?: string;
-				method?: dependency_1.RequestMethod;
-				headers?: ReturnType<typeof dependency_2.Headers.prototype.toObject>[];
+				method?: RequestMethod;
+				headers?: ReturnType<typeof Headers.prototype.toObject>[];
 				body?: Uint8Array;
 			} = {};
 			if (this.url != null) {
@@ -129,9 +231,7 @@ export namespace forwardRequest {
 				data.method = this.method;
 			}
 			if (this.headers != null) {
-				data.headers = this.headers.map((item: dependency_2.Headers) =>
-					item.toObject(),
-				);
+				data.headers = this.headers.map((item: Headers) => item.toObject());
 			}
 			if (this.body != null) {
 				data.body = this.body;
@@ -143,13 +243,10 @@ export namespace forwardRequest {
 		serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
 			const writer = w || new pb_1.BinaryWriter();
 			if (this.url.length) writer.writeString(1, this.url);
-			if (this.method != dependency_1.RequestMethod.GET)
-				writer.writeEnum(2, this.method);
+			if (this.method != RequestMethod.GET) writer.writeEnum(2, this.method);
 			if (this.headers.length)
-				writer.writeRepeatedMessage(
-					3,
-					this.headers,
-					(item: dependency_2.Headers) => item.serialize(writer),
+				writer.writeRepeatedMessage(3, this.headers, (item: Headers) =>
+					item.serialize(writer),
 				);
 			if (this.has_body) writer.writeBytes(4, this.body);
 			if (!w) return writer.getResultBuffer();
@@ -174,8 +271,8 @@ export namespace forwardRequest {
 							pb_1.Message.addToRepeatedWrapperField(
 								message,
 								3,
-								dependency_2.Headers.deserialize(reader),
-								dependency_2.Headers,
+								Headers.deserialize(reader),
+								Headers,
 							),
 						);
 						break;
