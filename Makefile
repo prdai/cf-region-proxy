@@ -5,7 +5,6 @@ export TS_PROTO_GEN_SCRIPT=scripts/generateProtocSchema.sh
 generate-proto-go:
 	protoc -I=. --go_out=$(TEST_DIR) --go_opt=module=github.com/prdai/cf-region-proxy/test/proto $(PROTO_FILE)
 
-
 generate-proto-ts:
 	$(TS_PROTO_GEN_SCRIPT) $(PROTO_FILE)
 
@@ -21,3 +20,8 @@ format:
 	bunx biome format --fix
 	golangci-lint fmt ./test/
 
+run-test:
+	go run ./test/main.go
+
+run-dev:
+	bun run dev
