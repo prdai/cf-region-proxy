@@ -22,7 +22,10 @@ export class Router extends DurableObject<Env> {
 	}
 }
 
-const getRouterStub = (env: Env, region: RegionCode) =>
+const getRouterStub = (
+	env: Env,
+	region: RegionCode,
+): DurableObjectStub<Router> =>
 	isJurisdictionCode(region)
 		? env.ROUTER.jurisdiction(region).getByName(region)
 		: env.ROUTER.getByName(region, { locationHint: region });
