@@ -1,6 +1,6 @@
-import { Router } from "./router";
 import scheduled from "./cron";
 import fetch from "./handler";
+import { Router } from "./router";
 
 export { Router };
 

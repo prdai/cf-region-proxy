@@ -53,62 +53,6 @@
       "last_modified": "2026-05-01T13:14:57Z",
       "resolved": "github:NixOS/nixpkgs/c6d65881c5624c9cae5ea6cedef24699b0c0a4c0?lastModified=1777641297&narHash=sha256-WNGcmeOZ8Tr9dq6ztCspYbzWFswr2mPebM9LpsfGxPk%3D"
     },
-    "protobuf@latest": {
-      "last_modified": "2026-04-23T13:07:47Z",
-      "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30#protobuf",
-      "source": "devbox-search",
-      "version": "34.1",
-      "systems": {
-        "aarch64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/8sznlbjn2dlq29x9s01lx3616f46xgby-protobuf-34.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/8sznlbjn2dlq29x9s01lx3616f46xgby-protobuf-34.1"
-        },
-        "aarch64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/9nhaq7n5l6r6dq110a3qf9slnrbggyml-protobuf-34.1",
-              "default": true
-            },
-            {
-              "name": "debug",
-              "path": "/nix/store/b0lfjj1mxxldbg9c08w7zib75lywsmh5-protobuf-34.1-debug"
-            }
-          ],
-          "store_path": "/nix/store/9nhaq7n5l6r6dq110a3qf9slnrbggyml-protobuf-34.1"
-        },
-        "x86_64-darwin": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/wpklc2ahh4vfip8i8zjkj47qc05kcn45-protobuf-34.1",
-              "default": true
-            }
-          ],
-          "store_path": "/nix/store/wpklc2ahh4vfip8i8zjkj47qc05kcn45-protobuf-34.1"
-        },
-        "x86_64-linux": {
-          "outputs": [
-            {
-              "name": "out",
-              "path": "/nix/store/ccj85ihhvb51dx0ql1kanwd31my50zwr-protobuf-34.1",
-              "default": true
-            },
-            {
-              "name": "debug",
-              "path": "/nix/store/4jsldb2c4b49y0vlfy0nkwm0174cf6kw-protobuf-34.1-debug"
-            }
-          ],
-          "store_path": "/nix/store/ccj85ihhvb51dx0ql1kanwd31my50zwr-protobuf-34.1"
-        }
-      }
-    },
     "wrangler@latest": {
       "last_modified": "2026-04-23T13:07:47Z",
       "resolved": "github:NixOS/nixpkgs/01fbdeef22b76df85ea168fbfe1bfd9e63681b30#wrangler",

@@ -19,8 +19,6 @@
 		"wrangler": "^4.87.0"
 	},
 	"dependencies": {
-		"google-protobuf": "^4.0.2",
-		"protoc-gen-ts": "^0.8.7",
 		"ts-jackson": "^1.7.0"
 	}
 }
