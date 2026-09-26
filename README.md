@@ -55,6 +55,17 @@ curl -X POST https://cfrp.prdai.dev \
   -d '{"url":"https://example.com","method":"GET"}'
 ```
 
+See which region actually handled it by reading the `colo=` line:
+
+```bash
+curl -X POST https://cfrp.prdai.dev \
+  -H "CFRP-Region: weur" \
+  -H "Content-Type: application/json" \
+  -d '{"url":"https://www.cloudflare.com/cdn-cgi/trace","method":"GET"}'
+```
+
+`colo` is the IATA code of the data center that made the request, so it changes with `CFRP-Region` (`weur` -> `LHR`, `apac` -> `SIN`, `eu` -> `FRA`). `loc` is your own country and stays the same no matter which region you pick.
+
 `POST` with headers and a body, from Eastern North America:
 
 ```bash
