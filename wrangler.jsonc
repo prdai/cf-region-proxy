@@ -25,7 +25,7 @@
 	],
 	"routes": [
 		{
-			"pattern": "cf-region-proxy.prdai.dev",
+			"pattern": "cfrp.prdai.dev",
 			"custom_domain": true
 		}
 	],
